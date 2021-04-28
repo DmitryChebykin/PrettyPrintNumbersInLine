@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TenNumbersInLine {
+public class PrettyPrintNumbersInLines {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,16 +22,19 @@ public class TenNumbersInLine {
         int currentNumber = firstNumber;
         int consoleLineLength = 4 * amountNumbersInLine; //for each number reserves four places to console output;
 
+        secondNumber = secondNumber + 1 / amountNumbersInLine; //if it will be asked to output one number per line we need change it in while condition
+
         do {
             String s = "";
-            for (int i = 0; i <= param - 1; i++) {
 
+            for (int i = 0; i <= param - 1; i++) {
                 s = String.format("%s%4s", s, currentNumber);
                 currentNumber += 1;
             }
 
             s = String.format("%" + consoleLineLength + "s", s);
             System.out.println(s);
+
             param = amountNumbersInLine;
         } while (currentNumber < secondNumber);
     }
